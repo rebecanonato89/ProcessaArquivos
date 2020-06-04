@@ -47,11 +47,15 @@ module.exports = {
       cidades = loadCidadesPorEstados(uf.toUpperCase());
 
 
-      cidades.cidadesEstado.forEach((cidade, index) => {
-         totalCidades = index;
-      });
+      // cidades.cidadesEstado.forEach((cidade, index) => {
+      //    totalCidades = index;
+      // });
 
-      totalCidades = totalCidades + 1;
+      // totalCidades = totalCidades + 1;
+
+      totalCidades = cidades.cidadesEstado.length;
+
+
       return response.json({ retorno: "O Estado: " + uf + " tem um total de: " + totalCidades + " cidades." });
     }
 };
