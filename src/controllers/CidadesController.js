@@ -53,7 +53,7 @@ function retornaMaiorCidade(estados){
           bigFor = word.Nome.trim();
         }
       }
-      estadoMaiorCidade.push({"Estado": estado.Nome, "CidadeMaiorNome":bigFor});
+      estadoMaiorCidade.push({"Estado": estado.Sigla, "CidadeMaiorNome":bigFor});
   });
 };
 
@@ -70,7 +70,7 @@ function retornaMenorCidade(estados){
           smallFor = word.Nome.trim();
         }
       }
-      estadoMenorCidade.push({"Estado": estado.Nome, "cidadeMenorNome": smallFor});
+      estadoMenorCidade.push({"Estado": estado.Sigla, "cidadeMenorNome": smallFor});
   });
 };
 
@@ -122,19 +122,14 @@ module.exports = {
     //Criar um método que imprima no console um array com a cidade de maior nome de cada estado, seguida de seu UF. Em caso de empate, considerar a ordem alfabética para ordená-los e então retornar o primeiro. Por exemplo: [“Nome da Cidade – UF”, “Nome da Cidade – UF”, ...].
     calculoMaiorNomeCidade(request, response){
       estados = loadEstados();
-      let maiorCidade = "";
-
-      estadoMaiorCidade = retornaMaiorCidade(estados);
-
+      retornaMaiorCidade(estados);
       response.json({ estadoMaiorCidade });
     },
 
     //Criar um método que imprima no console um array com a cidade de maior nome de cada estado, seguida de seu UF. Em caso de empate, considerar a ordem alfabética para ordená-los e então retornar o primeiro. Por exemplo: [“Nome da Cidade – UF”, “Nome da Cidade – UF”, ...].
     calculoMenorNomeCidade(request, response){
       estados = loadEstados();
-
       retornaMenorCidade(estados);
-
       response.json({ estadoMenorCidade });
     },
 
